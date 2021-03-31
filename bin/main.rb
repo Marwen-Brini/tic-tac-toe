@@ -4,7 +4,7 @@ class Game
   def initialize()
     @player1 = ''
     @player2 = ''
-    @players = { 'p1' => @player1, 'p2' => @players2 }
+    @players = {}
     @choices = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   end
 
@@ -16,12 +16,35 @@ class Game
     puts '+---+---+---+'
     puts "| #{@choices[6]} | #{@choices[7]} | #{@choices[8]} |"
     puts '+---+---+---+'
-    puts 'type the name of the 1st player'
+    
+  end
+
+  def get_data
+     puts "Welcome to Ruby's tic tac toe"
+  	puts 'type the name of the 1st player'
     @player1 = gets.chomp
     puts 'type the name of the 2nd player'
     @player2 = gets.chomp
+    @players= {  @player1=>'x' , @player2=>'o' }
+    puts @players
+  end
+  def run_turns
+  	system "clear"
+  	puts "its player 1 turn"
+  	v=gets.chomp
+  	until(v.to_i.between?(1,9))
+  		puts "please pick a choice between 1 and 9"
+  		v=gets.chomp
+  	end
+  	@choices[v.to_i-1]='O'
+  	draw_board
+  end
+  def run_game
+  	draw_board
+  	get_data
+  	run_turns
   end
 end
 
 p = Game.new
-p.draw_board
+p.run_game
