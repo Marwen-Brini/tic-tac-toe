@@ -16,33 +16,34 @@ class Game
     puts '+---+---+---+'
     puts "| #{@choices[6]} | #{@choices[7]} | #{@choices[8]} |"
     puts '+---+---+---+'
-    
   end
 
-  def get_data
-     puts "Welcome to Ruby's tic tac toe"
-  	puts 'type the name of the 1st player'
+  def use_data
+    puts "Welcome to Ruby's tic tac toe"
+    puts 'type the name of the 1st player'
     @player1 = gets.chomp
     puts 'type the name of the 2nd player'
     @player2 = gets.chomp
-    @players= {  @player1=>'x' , @player2=>'o' }
+    @players = { @player1 => 'x', @player2 => 'o' }
     puts @players
   end
+
   def run_turns
-  	system "clear"
-  	puts "its player 1 turn"
-  	v=gets.chomp
-  	until(v.to_i.between?(1,9))
-  		puts "please pick a choice between 1 and 9"
-  		v=gets.chomp
-  	end
-  	@choices[v.to_i-1]='O'
-  	draw_board
+    system 'clear'
+    puts 'its player 1 turn'
+    v = gets.chomp
+    until v.to_i.between?(1, 9)
+      puts 'please pick a choice between 1 and 9'
+      v = gets.chomp
+    end
+    @choices[v.to_i - 1] = 'O'
+    draw_board
   end
+
   def run_game
-  	draw_board
-  	get_data
-  	run_turns
+    draw_board
+    get_data
+    run_turns
   end
 end
 
