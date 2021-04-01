@@ -42,7 +42,7 @@ class Game
 
   def run_game
     draw_board
-    get_data
+    use_data
     run_turns
   end
 end
