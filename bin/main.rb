@@ -25,7 +25,7 @@ class Game
     puts 'type the name of the 2nd player'
     @player2 = gets.chomp
     @players = { @player1 => 'x', @player2 => 'o' }
-    puts @players
+    puts "#{@player1} will use X and #{@player2} will use O "
   end
 
   def run_turns
