@@ -38,6 +38,15 @@ class Game
     end
     @choices[v.to_i - 1] = 'O'
     draw_board
+
+    puts 'its player 2 turn'
+    v = gets.chomp
+    until v.to_i.between?(1, 9)
+      puts 'please pick a choice between 1 and 9'
+      v = gets.chomp
+    end
+    @choices[v.to_i - 1] = 'X'
+    draw_board
   end
 
   def run_game
